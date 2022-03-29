@@ -4,12 +4,13 @@ public class HiLo {
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
         /* Create a random number for the user to guess */
-        int theNumber = (int)(Math.random() * 100 + 1); //(int) type cast to int
+        int theNumber; //= (int)(Math.random() * 100 + 1); //(int) type cast to int
        // System.out.println(theNumber);
 
         String playAgain = " ";
         do{
             int guess = 0;
+            theNumber = (int)(Math.random() * 100 + 1);
             while(guess != theNumber)
             {
                 System.out.println("Guess an number between 1 and 100: ");
@@ -29,5 +30,6 @@ public class HiLo {
             playAgain = scan.next();
         } while(playAgain.equalsIgnoreCase("y"));
         System.out.println("Thank you for playing! Goodbye :)");
+        scan.close(); // close resource leaks
     }
 }
